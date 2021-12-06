@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,500&display=swap');
+
+html{
+    height: 100%;
+}
+
+body{
+    background-color: #343d4c;
+    color: white;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+
+}
+
+#main h1{
+    font-size: 40px;
+}
+
+#main p{
+    font-size: 20px;
+}
+
+/* click to lunch */
+.click{
+    background-color: rgba(0, 0, 0, 0.548);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+    font-size: 50px;
+
+    animation-duration: 1s;
+    animation-name: clickAnim;
+    animation-iteration-count: infinite;
+}
+
+.click_none{
+    display: none;
+}
+
+/* Animation Click to Lunch */
+@keyframes clickAnim {
+    0%{
+        font-size: 50px;
+    }
+    50%{
+        font-size: 70px;
+    }
+    100%{
+        font-size: 50px;
+    }
+
+}
+
+.center{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Reste Du Code */
+#main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+#toDay{
+    width: 400px;
+    height: 600px;
+    z-index: 1;
+    background-image: url("bg.jpg");
+    background-position: center;
+    border-radius: 35px;
+    box-shadow: 5px 8px 15px 10px#252c38;
+    transition: 1s;
+    cursor: default;
+}
+
+@media screen and (max-width: 1100px){
+    #toDay{
+        background-image: url("bg_Mobile.jpg");
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        text-align: center ;
+    }
+
+    #main h1{
+        font-size: 60px;
+    }
+
+    #main p{
+        font-size: 40px;
+    }
+}
+
+@media screen and (min-width: 1101px){
+    #toDay:hover{
+        transform: scale3d(1.05,1.05,1.05);
+        transition: 1s;
+    }
+
+}
+
+#toDay_Temp{
+    position: relative;
+    top: 50%;
+}
+
+#toDay_Text{
+    width: 100%;
+    background-color: #2929292d;
+}
+
+.toWeekBase{
+    position: relative;
+    left: -300px;
+    z-index: 0;
+    width: 300px;
+    height: 500px;
+    background-image: url("bg_2.jpg");
+    background-position: center;
+
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+
+    transition: all 2s;
+}
+
+
+.toWeekDefault{
+    position: relative;
+    left: 0px;
+    z-index: 0;
+    width: 300px;
+    height: 500px;
+    background-image: url("bg_2.jpg");
+    background-position: center;
+
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    transition: all 2s;
+}
+
+
+
+@keyframes animationBorder{
+    0%{
+        stroke-dashoffset: -1950;
+    }
+    50%{
+        stroke-dasharray: -1950;
+    }
+    100%{
+        stroke-dashoffset: 1950;
+    }
+}
+
+.svg{
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    border-radius: 35px;
+}
+
+.rect{
+    width: 400px;
+    height: 600px;
+    fill: transparent;
+    stroke: #19f6e8;
+    stroke-width: 7px;
+    background-color: transparent;
+    stroke-dasharray: 1950;
+
+    animation-duration: 4s;
+    animation-name: animationBorder;
+    animation-iteration-count: infinite;
+}
+
+/* MENU BURGER  */
+#menu_burger{
+    width: 42px;
+    height: 42px;
+    position: relative;
+}
+
+#menu_burger span{
+    width: 100%;
+    height: 4px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    border-radius: 35px;
+}
+
+
+
+#menu_burger span::before, #menu_burger span::after{
+    content: '';
+    width: 100%;
+    height: 4px;
+
+    display: block;
+    position: absolute;
+    border-radius: 35px;
+}
+
+.menu_Burger_base span{
+    background-color: white;
+    transition: background-color 0.5s ease;
+}
+
+/*ANIMATION MENU BURGER*/
+.menu_Burger_base span::before{
+    transform: translateY(-10px);
+    background-color: white;
+    transition: transform 0.5s;
+}
+
+.menu_Burger_base span::after{
+    transform: translateY(10px);
+    background-color: white;
+    transition: transform 0.5s;
+}
+
+.menu_Burger_rotate{
+    position: absolute;
+    top: 50%;
+}
+
+.menu_Burger_rotate span{
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+.menu_Burger_rotate span::after{
+    transform: translateY(0px) rotate(45deg);
+    background-color: white;
+    transition: transform 0.5s;
+
+}
+
+.menu_Burger_rotate span::before{
+    transform: translateY(0px) rotate(-45deg);
+    background-color: white;
+    transition: transform 0.5s;
+}
+
+
+#menu_burger{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+.darknone{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-bottom-right-radius: 50%;
+    transition: all 2s;
+}
+
+nav{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+button{
+  margin: auto;
+  border-color: transparent;
+  background-color: #343d4c;
+  box-shadow: 0px 0px 0px 0px #171b22;
+  color: white;
+  width: 50%;
+  height: 50px;
+  transition: 0.5s;
+}
+
+button:hover{
+  box-shadow: 20px 20px 0px 0px #171b22;
+  transition: 0.5s;
+}
+
+.dark{
+    background-color: #171b22;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 2s;
+}
