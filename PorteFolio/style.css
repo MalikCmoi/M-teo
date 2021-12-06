@@ -292,6 +292,7 @@ button{
 
 button:hover{
   box-shadow: 20px 20px 0px 0px #171b22;
+  transform: scale(1.05);
   transition: 0.5s;
 }
 
