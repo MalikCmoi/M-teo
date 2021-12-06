@@ -10,6 +10,8 @@ const city = document.getElementById("city");
 const temp = document.getElementById("temp");
 const dateText = document.getElementById("date");
 const divToDay = document.getElementById("toDay");
+const divtoWeek = document.getElementById("toWeek");
+const divMenuBurger = document.getElementById("menu_burger");
 
 //Music
 const music = new Audio('sound/calm.mp3');
@@ -26,7 +28,7 @@ request.onload = function(){
     date = date.split(" ");
     const meteo = request.response;
 
-    divToDay.addEventListener('mousedown',(e) =>{e.preventDefault()})
+    window.addEventListener('mousedown',(e) =>{e.preventDefault()})
 
     //Modification de la page Html
     day.innerText = jour[date[0]];
@@ -40,5 +42,34 @@ request.onload = function(){
 window.addEventListener('click', () => {
     divClick.classList.remove('click');
     divClick.classList.add('click_none');
+
+    
     music.play();
 })
+
+window.addEventListener('touchstart', () => {
+    divClick.classList.remove('click');
+    divClick.classList.add('click_none');
+
+    divtoWeek.classList.remove('toWeekDefault');
+    divtoWeek.classList.add('toWeekBase');
+    music.play();
+})
+
+divMenuBurger.addEventListener("click", () => {
+    
+    if(divMenuBurger.classList.contains("menu_Burger_base")){
+        divMenuBurger.classList.remove("menu_Burger_base");
+        divMenuBurger.classList.add("menu_Burger_rotate");
+
+        divtoWeek.classList.add('toWeekDefault');
+        divtoWeek.classList.remove('toWeekBase');
+    }else{
+        divMenuBurger.classList.add("menu_Burger_base");
+        divMenuBurger.classList.remove("menu_Burger_rotate");
+
+        divtoWeek.classList.remove('toWeekDefault');
+        divtoWeek.classList.add('toWeekBase');
+    }
+});
+
